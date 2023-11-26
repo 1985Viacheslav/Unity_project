@@ -5,13 +5,17 @@ using UnityEngine;
 public class CarScore : MonoBehaviour
 {
     public FinishMenu finishMenu;
+    public GameObject boomFX;
     public int score;
+    public int maxScore;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Trap")
         {
             Destroy(other.gameObject);
+            GameObject fx = Instantiate(boomFX, other.transform.position, Quaternion.identity);
+            Destroy(fx, 2);
         }
     }
 
@@ -29,7 +33,7 @@ public class CarScore : MonoBehaviour
 
         if(other.tag == "Finish")
         {
-            if(score < 20)
+            if(score < maxScore)
             {
                 finishMenu.scoreText.text = score.ToString();
             }

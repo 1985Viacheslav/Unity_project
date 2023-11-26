@@ -11,7 +11,9 @@ public class Trap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        trapObject.transform.position = transform.position + new Vector3(Random.Range(-offsetPosX, offsetPosX), transform.position.y, Random.Range(-offsetPosZ, offsetPosZ));
-        trapObject.transform.rotation = Quaternion.Euler(Vector3.up * Random.Range(-45f, 45f));
+        trapObject.transform.position = transform.position + new Vector3(Random.Range(-offsetPosX, offsetPosX), 0, Random.Range(-offsetPosZ, offsetPosZ));
+        trapObject.transform.rotation = Quaternion.Euler(Vector3.up *  (trapObject.transform.eulerAngles.y + Random.Range(-15f, 15f)));
+
+        FindObjectOfType<CarScore>().maxScore += 1;
     }
 }

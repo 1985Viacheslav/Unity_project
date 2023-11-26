@@ -17,6 +17,7 @@ public class CameraMover : MonoBehaviour
         if(target != null)
         {
             transform.position = target.position - _offset;
+            transform.rotation = Quaternion.Euler(Vector3.up * target.eulerAngles.y);
         }
     }
 }

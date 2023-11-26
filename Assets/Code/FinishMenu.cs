@@ -19,6 +19,12 @@ public class FinishMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void Next(string levelName)
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(levelName);
+    }
+
     public void Back()
     {
         Time.timeScale = 1;
