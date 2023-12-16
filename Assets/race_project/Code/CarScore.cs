@@ -6,6 +6,7 @@ public class CarScore : MonoBehaviour
 {
     public FinishMenu finishMenu;
     public GameObject boomFX;
+    public Car car;
     public int score;
     public int maxScore;
 
@@ -16,6 +17,7 @@ public class CarScore : MonoBehaviour
             Destroy(other.gameObject);
             GameObject fx = Instantiate(boomFX, other.transform.position, Quaternion.identity);
             Destroy(fx, 2);
+            car.TrapHit();
         }
     }
 

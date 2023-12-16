@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
     public void SelectLevel(int index)
     {
         SceneManager.LoadScene($"Game-{index}");
+       
     }
 
     public void Exit()

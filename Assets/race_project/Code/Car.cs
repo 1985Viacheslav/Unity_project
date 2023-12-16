@@ -25,14 +25,41 @@ public class Car : MonoBehaviour
     private float _currentAcceleration;
     private float _currentBreakingForce;
     private float _currentRotateAngle;
+    private bool _hitCar;
+
+    public void TrapHit()
+    {
+        _currentAcceleration = default;
+        rightFrontWheel.motorTorque = _currentAcceleration;
+        leftFrontWheel.motorTorque = _currentAcceleration;
+        _hitCar = true;
+
+        Invoke("CarHitNoramal", 1f);
+    }
+
+    private void CarHitNoramal()
+    {
+        _hitCar = false;
+    }
 
     private void Start()
     {
         rigidbody.centerOfMass = centerMass;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void FixedUpdate()
     {
+        if (_hitCar)
+        {
+            rightBackWheel.brakeTorque = breakingForce;
+            leftBackWheel.brakeTorque = breakingForce;
+            rightFrontWheel.brakeTorque = breakingForce;
+            leftBackWheel.brakeTorque = breakingForce;
+            return;
+        }
+
         _currentAcceleration = acceleration * Input.GetAxis("Vertical");
         _currentRotateAngle = rotateSpeed * Input.GetAxis("Horizontal");
 
