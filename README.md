@@ -6,4 +6,4 @@
 
 Game design document расположен по адресу https://docs.google.com/document/d/1XcUY3US-IPLLjZG2JOqboJ19CQSvD2vHJ-tINwF7Dhg/edit?usp=drive_link
 
-Build под платформу win: https://drive.google.com/drive/folders/1esfDmlH1UsnGQ3oFFQ3by4Jkf42heMHY?usp=drive_link
+Build под платформу win: https://drive.google.com/drive/folders/1dT4a5ekmXiQvIC73jZ9wnMy0X78Vi4HL?usp=drive_link
